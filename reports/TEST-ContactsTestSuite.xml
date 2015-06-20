@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+<testsuite name="Contacts Test Suite" errors="0" tests="0" failures="0" time="0" timestamp="2015-06-20T14:12:26">
+</testsuite>
+<testsuite name="Contacts Test Suite.hello world" errors="0" tests="0" failures="0" time="0" timestamp="2015-06-20T14:12:26">
+</testsuite>
+<testsuite name="Contacts Test Suite.create update contact" errors="0" tests="6" failures="0" time="0.124" timestamp="2015-06-20T14:12:26">
+  <testcase classname="Contacts Test Suite.create update contact" name="should create contact" time="0.031"></testcase>
+  <testcase classname="Contacts Test Suite.create update contact" name="should retrieve contact" time="0.031"></testcase>
+  <testcase classname="Contacts Test Suite.create update contact" name="should update contact" time="0.016"></testcase>
+  <testcase classname="Contacts Test Suite.create update contact" name="message is posted" time="0.015"></testcase>
+  <testcase classname="Contacts Test Suite.create update contact" name="message is posted" time="0.016"></testcase>
+  <testcase classname="Contacts Test Suite.create update contact" name="message is edited" time="0.015"></testcase>
+</testsuite>
+</testsuites>
