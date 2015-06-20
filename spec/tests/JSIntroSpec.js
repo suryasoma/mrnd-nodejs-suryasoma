@@ -47,6 +47,7 @@ describe("JSIntro Test Suite", function(){
 			expect(i).toEqual(10);
 		});
 	});
+	
 	describe("JSIntro-ReverseString", function(){
 
 		it("abc reversed is cba", function(){
@@ -65,6 +66,26 @@ describe("JSIntro Test Suite", function(){
 
 			var str = JSIntro.ReverseString("a");
 			expect(str).toEqual("a");
+		});
+	});
+	describe("JSIntro-ReverseArrayOfStrings", function(){
+
+		it("function executed", function(){
+
+			var str = JSIntro.ReverseArrayOfStrings(["abc","b","cb"]);
+			expect(str).toEqual(["cb","b","abc"]);
+		});
+
+		it("abcd reversed is dcba", function(){
+
+			var str = JSIntro.ReverseArrayOfStrings(["a","b","c","d"]);
+			expect(str).toEqual(["d","c","b","a"]);
+		});
+
+		it("a reversed is a", function(){
+
+			var str = JSIntro.ReverseArrayOfStrings(["a"]);
+			expect(str).toEqual(["a"]);
 		});
 	});
 });
