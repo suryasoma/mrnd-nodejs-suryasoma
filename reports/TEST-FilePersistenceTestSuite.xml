@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+<testsuite name="FilePersistence Test Suite" errors="0" tests="0" failures="0" time="0" timestamp="2015-06-22T15:22:26">
+</testsuite>
+<testsuite name="FilePersistence Test Suite.create persist contact" errors="0" tests="3" failures="0" time="0.062" timestamp="2015-06-22T15:22:26">
+  <testcase classname="FilePersistence Test Suite.create persist contact" name="should create contact" time="0.031"></testcase>
+  <testcase classname="FilePersistence Test Suite.create persist contact" name="should persist contact" time="0"></testcase>
+  <testcase classname="FilePersistence Test Suite.create persist contact" name="should update contact" time="0.031"></testcase>
+</testsuite>
+<testsuite name="FilePersistence Test Suite.post and get message to contact" errors="0" tests="2" failures="0" time="0.031" timestamp="2015-06-22T15:22:26">
+  <testcase classname="FilePersistence Test Suite.post and get message to contact" name="should post message to contact" time="0.016"></testcase>
+  <testcase classname="FilePersistence Test Suite.post and get message to contact" name="should get message for contact" time="0.015"></testcase>
+</testsuite>
+</testsuites>

@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
-<testsuite name="Contacts Test Suite" errors="0" tests="0" failures="0" time="0" timestamp="2015-06-20T14:12:26">
+<testsuite name="Contacts Test Suite" errors="0" tests="0" failures="0" time="0" timestamp="2015-06-22T15:22:25">
 </testsuite>
-<testsuite name="Contacts Test Suite.hello world" errors="0" tests="0" failures="0" time="0" timestamp="2015-06-20T14:12:26">
+<testsuite name="Contacts Test Suite.hello world" errors="0" tests="1" failures="0" time="0.062" timestamp="2015-06-22T15:22:25">
+  <testcase classname="Contacts Test Suite.hello world" name="hello world" time="0.047"></testcase>
 </testsuite>
-<testsuite name="Contacts Test Suite.create update contact" errors="0" tests="6" failures="0" time="0.124" timestamp="2015-06-20T14:12:26">
-  <testcase classname="Contacts Test Suite.create update contact" name="should create contact" time="0.031"></testcase>
-  <testcase classname="Contacts Test Suite.create update contact" name="should retrieve contact" time="0.031"></testcase>
+<testsuite name="Contacts Test Suite.create update contact" errors="0" tests="3" failures="0" time="0.094" timestamp="2015-06-22T15:22:25">
+  <testcase classname="Contacts Test Suite.create update contact" name="should create contact" time="0.063"></testcase>
+  <testcase classname="Contacts Test Suite.create update contact" name="should retrieve contact" time="0.015"></testcase>
   <testcase classname="Contacts Test Suite.create update contact" name="should update contact" time="0.016"></testcase>
-  <testcase classname="Contacts Test Suite.create update contact" name="message is posted" time="0.015"></testcase>
-  <testcase classname="Contacts Test Suite.create update contact" name="message is posted" time="0.016"></testcase>
-  <testcase classname="Contacts Test Suite.create update contact" name="message is edited" time="0.015"></testcase>
+</testsuite>
+<testsuite name="Contacts Test Suite.post and get message to contact" errors="0" tests="2" failures="0" time="0.031" timestamp="2015-06-22T15:22:25">
+  <testcase classname="Contacts Test Suite.post and get message to contact" name="should post message to contact" time="0.016"></testcase>
+  <testcase classname="Contacts Test Suite.post and get message to contact" name="should get message for contact" time="0.015"></testcase>
 </testsuite>
 </testsuites>

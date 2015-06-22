@@ -1,37 +1,28 @@
 
-describe("Contacts Test Suite", function(){
+var getContactFileName = function(id) {
 
-		var idCreated;
+	// We assume contacts are stored under data sub-folder
+	return /*"../../"+*/"src/contacts/data/" + id + "-Contact.json";
+}
+
+describe("FilePersistence Test Suite", function(){
+
 	//var request = require('request');
-	var request = require('C:\\Program Files\\nodejs\\node_modules\\npm\\node_modules\\request')
+	var request = require('C:/Program Files/nodejs/node_modules/npm/node_modules/request')
 	var base_url = "http://localhost:3000";
 	var contacts_url = base_url + "/contacts";
+	var fs = require('fs');
 
-	describe("hello world", function(){
-
-		it("hello world",function(done){
-		    
-		    request.get(base_url, function(error, response, body){
-
-				expect(response.statusCode).toBe(200);
-				expect(body).toBe("Hello World");
-
-				done();
-		    });
-		});
-
-	});
-
-	describe("create update contact", function(){
+	describe("create persist contact", function(){
+		var idCreated;
 
 		it("should create contact",function(done){
-
 			var contact = new Object();
 			contact.firstName = "jagan";
 			contact.lastName = "peri";
 			contact.phone = "23002300";
 
-			//console.log(JSON.stringify(contact));
+			////console.log(JSON.stringify(contact));
 		    
 		    request.post({url: contacts_url,
 		    			  body: contact,
@@ -40,25 +31,21 @@ describe("Contacts Test Suite", function(){
 		    		    function(error, response, body){
 
 							expect(response.statusCode).toBe(200);
-							//console.log(body);
+							////console.log(body);
 							idCreated = body;
 							done();
 					    });
 		});
 
-		it("should retrieve contact",function(done){
+		it("should persist contact",function(done){
 
-			request.get({
-							url: contacts_url + "/" + idCreated,
-							json: true
-						},
-		    		    function(error, response, body){
+			var fileName = getContactFileName(idCreated);
 
-							expect(response.statusCode).toBe(200);
-							//console.log(body);
-							expect(body.firstName).toBe("jagan");
-							done();
-					    });
+			var obj = JSON.parse(fs.readFileSync(fileName));
+
+			expect(obj.firstName).toBe("jagan");
+			done();
+
 		});
 		it("should update contact",function(done){
 
@@ -72,9 +59,12 @@ describe("Contacts Test Suite", function(){
 		    		    function(error, response, body){
 
 							expect(response.statusCode).toBe(200);
-							//console.log(body);
-							expect(body.firstName).toBe("jagan-updated");
-							expect(body.phone).toBe("23002300");
+							////console.log(body);
+
+							var fileName = getContactFileName(idCreated);
+
+							var obj = JSON.parse(fs.readFileSync(fileName));
+							expect(obj.firstName).toBe("jagan-updated");
 							done();
 					    });
 		});
@@ -83,8 +73,8 @@ describe("Contacts Test Suite", function(){
 	//TODO: Fill out the test case below that posts a message to a contact
 	// and retrieves it back.
 	describe("post and get message to contact", function(){
-        var midCreated;
-		it("should post message to contact", function(done){
+
+        it("should post message to contact", function(done){
 			//TODO: Write your test case here.
             var msg = new Object();
             msg.sender="yashwanth";
@@ -117,8 +107,7 @@ describe("Contacts Test Suite", function(){
                         done();
             });
 
-		});
-
 	});
 
+});
 });

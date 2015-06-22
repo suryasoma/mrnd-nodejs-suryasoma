@@ -1,6 +1,7 @@
 
 describe("JSIntro Test Suite", function(){
 	var JSIntro = require("../../src/JSIntro");
+	var request = require('C:\\Program Files\\nodejs\\node_modules\\npm\\node_modules\\request');
 
 	describe("JSIntro-Sum", function(){
 
@@ -47,7 +48,6 @@ describe("JSIntro Test Suite", function(){
 			expect(i).toEqual(10);
 		});
 	});
-	
 	describe("JSIntro-ReverseString", function(){
 
 		it("abc reversed is cba", function(){
@@ -68,24 +68,13 @@ describe("JSIntro Test Suite", function(){
 			expect(str).toEqual("a");
 		});
 	});
-	describe("JSIntro-ReverseArrayOfStrings", function(){
+    describe("JSIntro-ReverseArrayOfString", function(){
 
-		it("function executed", function(){
+		it("[\"abc\",\"lop\",\"kil\"] reversed is [\"kil\",\"lop\",\"abc\"]", function(){
 
-			var str = JSIntro.ReverseArrayOfStrings(["abc","b","cb"]);
-			expect(str).toEqual(["cb","b","abc"]);
+			var str = JSIntro.ReverseArrayOfStrings(["abc","loll","lpoi"]);
+			expect(str).toEqual(["lpoi","loll","abc"]);
 		});
 
-		it("abcd reversed is dcba", function(){
-
-			var str = JSIntro.ReverseArrayOfStrings(["a","b","c","d"]);
-			expect(str).toEqual(["d","c","b","a"]);
-		});
-
-		it("a reversed is a", function(){
-
-			var str = JSIntro.ReverseArrayOfStrings(["a"]);
-			expect(str).toEqual(["a"]);
-		});
 	});
 });

@@ -2,17 +2,17 @@
 // Fix the assertions below so they all pass.
 describe("HttpIntro Test Suite", function(){
 	//var request = require('request');
-	var request = require('C:/Program Files/nodejs/node_modules/npm/node_modules/request');
-	jasmine.getEnv().defaultTimeoutInterval = 5000;
+	var request = require('C:\\Program Files\\nodejs\\node_modules\\npm\\node_modules\\request');
+	jasmine.getEnv().defaultTimeoutInterval = 30000;
 
-	xit("IDontKnowBill_Gates",function(done){
-     	
+	it("IDontKnowBill_Gates",function(done){
+    
     	request.get(
-    		{url: "http://en.wikipedia.org/wiki/IDontKnowBill_Gates",
+    		{url: "http://en.wikipedia.org/wiki/IDontKnowBill_Gates",/*proxy:"http://10.4.8.204:8080",*/
     		 timeout: 5000}, 
     		 function(error, response, body){
 
-			 //console.log(response);
+			// console.log(response);
 			expect(response.statusCode).toBe(404);
 			expect(response.statusMessage).toBe('Not Found');
 			expect(response.headers["content-type"]).toBe("text/html; charset=UTF-8");
@@ -23,10 +23,10 @@ describe("HttpIntro Test Suite", function(){
 
 	// Fix the assertions below so they all pass.
 
-	 xit("Twitter",function(done){
+	 it("Twitter",function(done){
 	    
 	    	request.get(
-	    		{url: "https://api.twitter.com/1.1/friends/list.json",
+	    		{url: "https://api.twitter.com/1.1/friends/list.json",/*proxy:"http://10.4.8.204:8080",*/
 	    		 timeout: 30000}, 
 	    		 function(error, response, body){
 
@@ -41,10 +41,10 @@ describe("HttpIntro Test Suite", function(){
 
 	// Fix the assertions below so they pass.
 
-	xit("Weather",function(done){
+	 it("Weather",function(done){
 	    
 	    	request.get(
-	    		{url: "http://api.openweathermap.org/data/2.5/weather?q=jaganperi",
+	    		{url: "http://api.openweathermap.org/data/2.5/weather?q=jaganperi",/*proxy:"http://10.4.8.204:8080",*/
 	    		 timeout: 30000}, 
 	    		 function(error, response, body){
 
@@ -56,14 +56,14 @@ describe("HttpIntro Test Suite", function(){
 				done();
 	    });
 	 });
-
+     
 	// This test case gets back json output from the openweather service.
 	// Fix the test case so it can parse the json response correctly and
 	// access the country field.
-	 xit("Weather-json",function(done){
+	 it("Weather-json",function(done){
 	    
 	    	request.get(
-	    		{url: "http://api.openweathermap.org/data/2.5/weather?q=hyderabad",
+	    		{url: "http://api.openweathermap.org/data/2.5/weather?q=hyderabad",/*proxy:"http://10.4.8.204:8080",*/
 	    		 timeout: 30000,
 	    		  json: true}, 
 	    		 function(error, response, body){
@@ -74,18 +74,25 @@ describe("HttpIntro Test Suite", function(){
 				done();
 		    });
 	});
-
 	 it("Weather-xml",function(done){
 	    
 	    	request.get(
-	    		{url: "http://api.openweathermap.org/data/2.5/weather?q=hyderabad&mode=xml",
+	    		{url: "http://api.openweathermap.org/data/2.5/weather?q=hyderabad&mode=xml",/*proxy:"http://10.4.8.204:8080",*/
 	    		 timeout: 30000,
-	    		  json: false,
-	    		  xml: true}, 
+	    		  xml: true
+                }, 
 	    		 function(error, response, body){
+				    //console.log(response);
+                     xml2js = require('C:\\Program Files\\nodejs\\node_modules\\npm\\node_modules\\xml2js');
+                     var parser = new xml2js.Parser();
+                     parser.parseString(body,function(err,result){
+                        //console.log(result);
+                         var obj=result.current.city[0].country[0];
+                         //console.log(obj);
+                         expect(obj).toBe("IN");
+                     });
+				
 
-				console.log(response);
-				expect(body.city.country).toBe("IN");
 				done();
 		    });
 	});
